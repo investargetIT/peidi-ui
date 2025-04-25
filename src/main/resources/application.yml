@@ -1,0 +1,43 @@
+spring:
+  debug: true
+  # datasource 数据源配置内容
+  datasource:
+    url: jdbc:mysql://121.43.145.161:3306/peidi?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+#    url: jdbc:mysql://121.43.145.161:3306/peidi_test?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: peidi2024!
+    hikari:
+      maximum-pool-size: 50
+  # JPA 配置内容，对应 JpaProperties 类
+  jpa:
+    show-sql: true # 打印 SQL 。生产环境，建议关闭
+    # Hibernate 配置内容，对应 HibernateProperties 类
+    hibernate:
+      ddl-auto: update
+  #swagger mvc适配
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  redis:
+    database: 0
+#    host: 127.0.0.1
+    host: 121.43.145.161
+    port: 6379
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+server:
+  port: 8086
+mybatis-plus:
+  global-config:
+     db-config:
+      id-type: auto
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#
+#mybatis:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
